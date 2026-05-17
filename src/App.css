@@ -56,30 +56,201 @@
   }
 }
 
+.clear-button {
+  padding: var(--spacing-md) var(--spacing-lg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  background: var(--code-bg);
+  color: var(--text-h);
+  font-family: var(--sans);
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: var(--transition);
+
+  &:hover {
+    background: var(--accent-bg);
+    border-color: var(--accent-border);
+    color: var(--accent);
+  }
+
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px var(--accent-bg);
+  }
+
+  &:active {
+    transform: scale(0.98);
+  }
+}
+
 .result-section {
   padding: var(--spacing-lg);
-  background: var(--accent-bg);
-  border: 1px solid var(--accent-border);
+  border: 2px solid;
   border-radius: var(--radius-lg);
   animation: slideUp 0.3s ease-out;
+  transition: var(--transition);
+}
 
-  h2 {
-    margin-bottom: var(--spacing-sm);
+.result-header {
+  display: flex;
+  align-items: baseline;
+  gap: var(--spacing-md);
+  margin-bottom: var(--spacing-md);
+}
+
+.result-value {
+  font-size: 28px;
+  font-weight: 700;
+
+  @media (min-width: 375px) {
+    font-size: 32px;
   }
+}
+
+.result-status {
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.result-label {
+  font-size: 14px;
+  margin-bottom: var(--spacing-md);
+  opacity: 0.9;
+}
+
+.result-message {
+  font-size: 14px;
+  margin-bottom: var(--spacing-md);
+  line-height: 1.5;
+  font-weight: 500;
+}
+
+.threshold-info {
+  font-size: 12px;
+  opacity: 0.8;
+  font-style: italic;
+}
+
+/* Elite Value - Deep Teal */
+.result-elite {
+  --status-color: #0d9488;
+  --status-bg: rgba(13, 148, 136, 0.1);
+  --status-border: rgba(13, 148, 136, 0.4);
+
+  background: var(--status-bg);
+  border-color: var(--status-border);
 
   .result-value {
-    font-size: 24px;
-    font-weight: 600;
-    color: var(--accent);
-
-    @media (min-width: 375px) {
-      font-size: 28px;
-    }
+    color: var(--status-color);
   }
 
-  .result-label {
-    font-size: 14px;
-    color: var(--text);
+  .result-status {
+    color: var(--status-color);
+  }
+
+  .result-message {
+    color: var(--status-color);
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .result-elite {
+    --status-color: #2dd4bf;
+    --status-bg: rgba(45, 212, 191, 0.1);
+    --status-border: rgba(45, 212, 191, 0.4);
+  }
+}
+
+/* Good Value - Green */
+.result-good {
+  --status-color: #10b981;
+  --status-bg: rgba(16, 185, 129, 0.1);
+  --status-border: rgba(16, 185, 129, 0.3);
+
+  background: var(--status-bg);
+  border-color: var(--status-border);
+
+  .result-value {
+    color: var(--status-color);
+  }
+
+  .result-status {
+    color: var(--status-color);
+  }
+
+  .result-message {
+    color: var(--status-color);
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .result-good {
+    --status-color: #6ee7b7;
+    --status-bg: rgba(110, 231, 183, 0.1);
+    --status-border: rgba(110, 231, 183, 0.3);
+  }
+}
+
+/* Fair Value - Yellow */
+.result-fair {
+  --status-color: #f59e0b;
+  --status-bg: rgba(245, 158, 11, 0.1);
+  --status-border: rgba(245, 158, 11, 0.3);
+
+  background: var(--status-bg);
+  border-color: var(--status-border);
+
+  .result-value {
+    color: var(--status-color);
+  }
+
+  .result-status {
+    color: var(--status-color);
+  }
+
+  .result-message {
+    color: var(--status-color);
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .result-fair {
+    --status-color: #fbbf24;
+    --status-bg: rgba(251, 191, 36, 0.1);
+    --status-border: rgba(251, 191, 36, 0.3);
+  }
+}
+
+/* Expensive - Red */
+.result-expensive {
+  --status-color: #ef4444;
+  --status-bg: rgba(239, 68, 68, 0.1);
+  --status-border: rgba(239, 68, 68, 0.3);
+
+  background: var(--status-bg);
+  border-color: var(--status-border);
+
+  .result-value {
+    color: var(--status-color);
+  }
+
+  .result-status {
+    color: var(--status-color);
+  }
+
+  .result-message {
+    color: var(--status-color);
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .result-expensive {
+    --status-color: #f87171;
+    --status-bg: rgba(248, 113, 113, 0.1);
+    --status-border: rgba(248, 113, 113, 0.3);
   }
 }
 
@@ -115,6 +286,15 @@
   .result-section {
     padding: var(--spacing-md);
   }
+
+  .result-value {
+    font-size: 26px;
+  }
+
+  .clear-button {
+    padding: var(--spacing-md);
+    font-size: 13px;
+  }
 }
 
 @media (min-width: 768px) {
@@ -125,5 +305,9 @@
 
   .result-section {
     padding: var(--spacing-xl);
+  }
+
+  .clear-button {
+    padding: var(--spacing-md) var(--spacing-xl);
   }
 }
