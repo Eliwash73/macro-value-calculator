@@ -2,13 +2,12 @@ import { useState } from "react";
 
 export default function App() {
   const [price, setPrice] = useState("");
-  const [protein, setProtein] = useState("");
+  const [macro, setMacro] = useState("");
   const [servings, setServings] = useState("");
+  const [result, setResult] = useState("protein");
 
-  const result =
-    price && protein && servings
-      ? (price / (protein * servings)).toFixed(2)
-      : null;
+  const calculatedResult =
+    price && macro && servings ? (price / (macro * servings)).toFixed(2) : null;
 
   return (
     <div
@@ -21,6 +20,16 @@ export default function App() {
     >
       <h1>Macro Value Calculator</h1>
 
+      <p>select a macro to calculate value</p>
+      <select
+        value={result ? result : "protein"}
+        onChange={(e) => setResult(e.target.value)}
+      >
+        <option value="protein">Protein</option>
+        <option value="carbohydrates">Carbohydrates</option>
+        <option value="fat">Fat</option>
+      </select>
+
       <input
         type="number"
         placeholder="Total price ($)"
@@ -32,8 +41,8 @@ export default function App() {
       <input
         type="number"
         placeholder="Protein per serving (g)"
-        value={protein}
-        onChange={(e) => setProtein(e.target.value)}
+        value={macro}
+        onChange={(e) => setMacro(e.target.value)}
         style={{ width: "100%", marginBottom: 10 }}
       />
 
@@ -45,7 +54,11 @@ export default function App() {
         style={{ width: "100%", marginBottom: 10 }}
       />
 
-      {result && <h2>${result} per gram of protein</h2>}
+      {result && (
+        <h2>
+          ${calculatedResult} per gram of {result}
+        </h2>
+      )}
     </div>
   );
 }
