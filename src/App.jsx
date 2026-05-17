@@ -9,56 +9,85 @@ export default function App() {
   const calculatedResult =
     price && macro && servings ? (price / (macro * servings)).toFixed(2) : null;
 
+  const macroLabels = {
+    protein: "Protein",
+    carbohydrates: "Carbohydrates",
+    fat: "Fat",
+  };
+
   return (
-    <div
-      style={{
-        fontFamily: "sans-serif",
-        padding: 20,
-        // maxWidth: 400,
-        margin: "0 auto",
-      }}
-    >
-      <h1>Macro Value Calculator</h1>
+    <main className="app-container">
+      <header>
+        <h1>Macro Value Calculator</h1>
+        <p>Calculate the cost per gram of any macronutrient</p>
+      </header>
 
-      <p>select a macro to calculate value</p>
-      <select
-        value={result ? result : "protein"}
-        onChange={(e) => setResult(e.target.value)}
-      >
-        <option value="protein">Protein</option>
-        <option value="carbohydrates">Carbohydrates</option>
-        <option value="fat">Fat</option>
-      </select>
+      <form className="select-section">
+        <label htmlFor="macro-select">Select a macro to calculate</label>
+        <select
+          id="macro-select"
+          value={result}
+          onChange={(e) => setResult(e.target.value)}
+        >
+          <option value="protein">Protein</option>
+          <option value="carbohydrates">Carbohydrates</option>
+          <option value="fat">Fat</option>
+        </select>
+      </form>
 
-      <input
-        type="number"
-        placeholder="Total price ($)"
-        value={price}
-        onChange={(e) => setPrice(e.target.value)}
-        style={{ width: "100%", marginBottom: 10 }}
-      />
+      <div className="form-group">
+        <label htmlFor="price-input">Total Price</label>
+        <div className="input-wrapper">
+          <input
+            id="price-input"
+            type="number"
+            placeholder="Enter price ($)"
+            value={price}
+            onChange={(e) => setPrice(e.target.value)}
+            min="0"
+            step="0.01"
+          />
+        </div>
+      </div>
 
-      <input
-        type="number"
-        placeholder="Protein per serving (g)"
-        value={macro}
-        onChange={(e) => setMacro(e.target.value)}
-        style={{ width: "100%", marginBottom: 10 }}
-      />
+      <div className="form-group">
+        <label htmlFor="macro-input">{macroLabels[result]} per serving</label>
+        <div className="input-wrapper">
+          <input
+            id="macro-input"
+            type="number"
+            placeholder={`Enter grams of ${macroLabels[result].toLowerCase()}`}
+            value={macro}
+            onChange={(e) => setMacro(e.target.value)}
+            min="0"
+            step="0.1"
+          />
+        </div>
+      </div>
 
-      <input
-        type="number"
-        placeholder="Servings"
-        value={servings}
-        onChange={(e) => setServings(e.target.value)}
-        style={{ width: "100%", marginBottom: 10 }}
-      />
+      <div className="form-group">
+        <label htmlFor="servings-input">Number of Servings</label>
+        <div className="input-wrapper">
+          <input
+            id="servings-input"
+            type="number"
+            placeholder="Enter number of servings"
+            value={servings}
+            onChange={(e) => setServings(e.target.value)}
+            min="0"
+            step="0.5"
+          />
+        </div>
+      </div>
 
-      {result && (
-        <h2>
-          ${calculatedResult} per gram of {result}
-        </h2>
+      {calculatedResult && (
+        <section className="result-section">
+          <div className="result-value">${calculatedResult}</div>
+          <div className="result-label">
+            per gram of {macroLabels[result].toLowerCase()}
+          </div>
+        </section>
       )}
-    </div>
+    </main>
   );
 }
