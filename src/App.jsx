@@ -19,7 +19,7 @@ export default function App() {
         margin: "0 auto",
       }}
     >
-      <h1>Protein Value Calc</h1>
+      <h1>Macro Value Calculator</h1>
 
       <input
         type="number"
