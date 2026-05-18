@@ -210,6 +210,41 @@ export default function App() {
         )}
       </main>
 
+      <section className="thresholds-section">
+        <h2>Value Tier Thresholds</h2>
+        <div className="thresholds-grid">
+          {Object.entries(MACRO_THRESHOLDS).map(([macroKey, macro]) => (
+            <div key={macroKey} className="macro-tier">
+              <h3>{macroLabels[macroKey]}</h3>
+              <div className="tier-item elite-tier">
+                <span className="tier-label">Elite</span>
+                <span className="tier-value">
+                  &lt;${macro.elite.toFixed(3)}/g
+                </span>
+              </div>
+              <div className="tier-item good-tier">
+                <span className="tier-label">Good</span>
+                <span className="tier-value">
+                  ${macro.elite.toFixed(3)}-${macro.good.toFixed(3)}/g
+                </span>
+              </div>
+              <div className="tier-item fair-tier">
+                <span className="tier-label">Fair</span>
+                <span className="tier-value">
+                  ${macro.good.toFixed(3)}-${macro.fair.toFixed(3)}/g
+                </span>
+              </div>
+              <div className="tier-item expensive-tier">
+                <span className="tier-label">Expensive</span>
+                <span className="tier-value">
+                  &gt;${macro.fair.toFixed(3)}/g
+                </span>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
       <footer className="app-footer">
         <a
           href="https://github.com/Eliwash73/macro-value-calculator"
@@ -232,3 +267,9 @@ export default function App() {
     </>
   );
 }
+
+const macroLabels = {
+  protein: "Protein",
+  carbohydrates: "Carbohydrates",
+  fat: "Fat",
+};
