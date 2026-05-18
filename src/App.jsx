@@ -1,4 +1,5 @@
 import { useState } from "react";
+import "./App.css";
 
 // Value thresholds for each macro (cost per gram)
 const MACRO_THRESHOLDS = {
