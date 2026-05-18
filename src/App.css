@@ -277,14 +277,15 @@
 }
 
 .thresholds-section {
-  padding: var(--spacing-lg) var(--spacing-md);
+  width: 100%;
+  padding: var(--spacing-lg);
   background: var(--code-bg);
   border-top: 1px solid var(--border);
 }
 
 .thresholds-section h2 {
   text-align: center;
-  margin-bottom: var(--spacing-lg);
+  margin: 0 0 var(--spacing-lg) 0;
   font-size: 24px;
 }
 
@@ -293,7 +294,10 @@
   grid-template-columns: 1fr;
   gap: var(--spacing-lg);
   max-width: 1126px;
+  width: 100%;
   margin: 0 auto;
+  padding: 0 var(--spacing-md);
+  box-sizing: border-box;
 }
 
 .macro-tier {
@@ -304,7 +308,7 @@
 
 .macro-tier h3 {
   margin: 0;
-  font-size: 16px;
+  font-size: 14px;
   text-transform: uppercase;
   letter-spacing: 0.5px;
   opacity: 0.8;
@@ -321,7 +325,7 @@
 
 .tier-label {
   font-weight: 600;
-  font-size: 14px;
+  font-size: 13px;
   text-transform: uppercase;
   letter-spacing: 0.5px;
 }
@@ -329,7 +333,7 @@
 .tier-value {
   font-family: var(--mono);
   font-weight: 600;
-  font-size: 14px;
+  font-size: 13px;
 }
 
 .elite-tier {
@@ -382,14 +386,30 @@
   }
 }
 
+@media (min-width: 375px) {
+  .thresholds-section {
+    padding: var(--spacing-lg);
+  }
+
+  .thresholds-grid {
+    padding: 0 var(--spacing-md);
+  }
+
+  .tier-label,
+  .tier-value {
+    font-size: 14px;
+  }
+}
+
 @media (min-width: 768px) {
   .thresholds-section {
-    padding: var(--spacing-xl) var(--spacing-lg);
+    padding: var(--spacing-xl);
   }
 
   .thresholds-grid {
     grid-template-columns: repeat(3, 1fr);
     gap: var(--spacing-xl);
+    padding: 0;
   }
 
   .thresholds-section h2 {
@@ -401,6 +421,15 @@
     flex-direction: column;
     align-items: flex-start;
     gap: var(--spacing-sm);
+  }
+
+  .macro-tier h3 {
+    font-size: 16px;
+  }
+
+  .tier-label,
+  .tier-value {
+    font-size: 14px;
   }
 }
 
@@ -446,5 +475,25 @@
   .github-logo {
     width: 28px;
     height: 28px;
+  }
+}
+
+h1 {
+  font-size: 24px;
+  letter-spacing: -0.48px;
+  line-height: 1.2;
+  margin: 0 0 8px 0;
+
+  @media (min-width: 375px) {
+    font-size: 28px;
+  }
+
+  @media (min-width: 768px) {
+    font-size: 32px;
+  }
+
+  @media (min-width: 1024px) {
+    font-size: 36px;
+    letter-spacing: -0.72px;
   }
 }
