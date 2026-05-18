@@ -7,20 +7,20 @@
   border: 2px solid transparent;
   transition: var(--transition);
   cursor: pointer;
+}
 
-  &:hover {
-    border-color: var(--accent-border);
-    transform: translateY(-2px);
-  }
+.counter:hover {
+  border-color: var(--accent-border);
+  transform: translateY(-2px);
+}
 
-  &:focus-visible {
-    outline: 2px solid var(--accent);
-    outline-offset: 2px;
-  }
+.counter:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
 
-  &:active {
-    transform: translateY(0);
-  }
+.counter:active {
+  transform: translateY(0);
 }
 
 .app-container {
@@ -50,13 +50,14 @@
   display: flex;
   flex-direction: column;
   gap: var(--spacing-xs);
+}
 
-  input {
-    margin: 0;
-  }
+.input-wrapper input {
+  margin: 0;
 }
 
 .clear-button {
+  width: 100%;
   padding: var(--spacing-md) var(--spacing-lg);
   border: 1px solid var(--border);
   border-radius: var(--radius-md);
@@ -67,21 +68,21 @@
   font-weight: 500;
   cursor: pointer;
   transition: var(--transition);
+}
 
-  &:hover {
-    background: var(--accent-bg);
-    border-color: var(--accent-border);
-    color: var(--accent);
-  }
+.clear-button:hover {
+  background: var(--accent-bg);
+  border-color: var(--accent-border);
+  color: var(--accent);
+}
 
-  &:focus {
-    outline: none;
-    box-shadow: 0 0 0 3px var(--accent-bg);
-  }
+.clear-button:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px var(--accent-bg);
+}
 
-  &:active {
-    transform: scale(0.98);
-  }
+.clear-button:active {
+  transform: scale(0.98);
 }
 
 .result-section {
@@ -102,8 +103,10 @@
 .result-value {
   font-size: 28px;
   font-weight: 700;
+}
 
-  @media (min-width: 375px) {
+@media (min-width: 375px) {
+  .result-value {
     font-size: 32px;
   }
 }
@@ -139,21 +142,20 @@
   --status-color: #0d9488;
   --status-bg: rgba(13, 148, 136, 0.1);
   --status-border: rgba(13, 148, 136, 0.4);
-
   background: var(--status-bg);
   border-color: var(--status-border);
+}
 
-  .result-value {
-    color: var(--status-color);
-  }
+.result-elite .result-value {
+  color: var(--status-color);
+}
 
-  .result-status {
-    color: var(--status-color);
-  }
+.result-elite .result-status {
+  color: var(--status-color);
+}
 
-  .result-message {
-    color: var(--status-color);
-  }
+.result-elite .result-message {
+  color: var(--status-color);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -169,21 +171,20 @@
   --status-color: #10b981;
   --status-bg: rgba(16, 185, 129, 0.1);
   --status-border: rgba(16, 185, 129, 0.3);
-
   background: var(--status-bg);
   border-color: var(--status-border);
+}
 
-  .result-value {
-    color: var(--status-color);
-  }
+.result-good .result-value {
+  color: var(--status-color);
+}
 
-  .result-status {
-    color: var(--status-color);
-  }
+.result-good .result-status {
+  color: var(--status-color);
+}
 
-  .result-message {
-    color: var(--status-color);
-  }
+.result-good .result-message {
+  color: var(--status-color);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -199,21 +200,20 @@
   --status-color: #f59e0b;
   --status-bg: rgba(245, 158, 11, 0.1);
   --status-border: rgba(245, 158, 11, 0.3);
-
   background: var(--status-bg);
   border-color: var(--status-border);
+}
 
-  .result-value {
-    color: var(--status-color);
-  }
+.result-fair .result-value {
+  color: var(--status-color);
+}
 
-  .result-status {
-    color: var(--status-color);
-  }
+.result-fair .result-status {
+  color: var(--status-color);
+}
 
-  .result-message {
-    color: var(--status-color);
-  }
+.result-fair .result-message {
+  color: var(--status-color);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -229,21 +229,20 @@
   --status-color: #ef4444;
   --status-bg: rgba(239, 68, 68, 0.1);
   --status-border: rgba(239, 68, 68, 0.3);
-
   background: var(--status-bg);
   border-color: var(--status-border);
+}
 
-  .result-value {
-    color: var(--status-color);
-  }
+.result-expensive .result-value {
+  color: var(--status-color);
+}
 
-  .result-status {
-    color: var(--status-color);
-  }
+.result-expensive .result-status {
+  color: var(--status-color);
+}
 
-  .result-message {
-    color: var(--status-color);
-  }
+.result-expensive .result-message {
+  color: var(--status-color);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -269,12 +268,12 @@
   display: flex;
   flex-direction: column;
   gap: var(--spacing-sm);
+}
 
-  label {
-    font-size: 14px;
-    font-weight: 500;
-    color: var(--text-h);
-  }
+.select-section label {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-h);
 }
 
 /* Responsive adjustments */
