@@ -190,7 +190,7 @@ export default function App() {
               )}
               {valueStatus === "good" && (
                 <span>
-                  Good value: ${MACRO_THRESHOLDS[result].elite.toFixed(3)}-$
+                  Great value: ${MACRO_THRESHOLDS[result].elite.toFixed(3)}-$
                   {MACRO_THRESHOLDS[result].good.toFixed(3)}/g
                 </span>
               )}
@@ -223,7 +223,7 @@ export default function App() {
                 </span>
               </div>
               <div className="tier-item good-tier">
-                <span className="tier-label">Good</span>
+                <span className="tier-label">Great</span>
                 <span className="tier-value">
                   ${macro.elite.toFixed(3)}-${macro.good.toFixed(3)}/g
                 </span>
